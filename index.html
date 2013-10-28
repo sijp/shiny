@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+		<title> SHINY </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		function shiny(){
+			$("#preview").attr("src","shinyGen.php?"+$("form").serialize());
+			console.log($("#preview"));
+		}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" id="memename" name="memename" /><br/>
+			<textarea id="top_title" name="top_title" width="16"></textarea><br/>
+			<textarea id="bottom_title" name="bottom_title" width="16"></textarea><br/>
+			<input type="button" onclick="javascript:shiny();" value="Go!" />
+		</form>
+
+		<img id="preview" alt="preview" />
+	</body>
+</html>
