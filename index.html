@@ -11,11 +11,21 @@
 			$("#preview").attr("src","shinyGen.php?"+$("form").serialize());
 			console.log($("#preview"));
 		}
+
+		$(document).ready(function(){
+			$.getJSON("getMemes.php",function(data){
+				for (record in data){
+					$("#memeid").append("<option value=\""+data[record]["id"]+"\">"+data[record]["description"]+"</option>");
+				}
+			});
+		});
 		</script>
 	</head>
 	<body>
 		<form>
-			<input type="text" id="memename" name="memename" /><br/>
+			<!--<input type="text" id="memename" name="memename" /><br/>-->
+			<select id="memeid" name="memeid">
+			</select><br/>
 			<textarea id="top_title" name="top_title" width="16"></textarea><br/>
 			<textarea id="bottom_title" name="bottom_title" width="16"></textarea><br/>
 			<input type="button" onclick="javascript:shiny();" value="Go!" />

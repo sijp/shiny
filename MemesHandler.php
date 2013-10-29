@@ -21,6 +21,16 @@ class MemesHandler{
 			return false;
 		return true;
 	}
+
+	public function getFileNameById($id){
+		$stmt = $this->dbhandler->prepare("select filename FROM memes WHERE id=:id");
+		$stmt->bindValue(":id",$id,SQLITE3_TEXT);
+		$result=$stmt->execute();
+		$filename=$result->fetchArray();
+		if (!$filename)
+			return false;
+		return $filename["filename"];
+	}
 	
 	public function getMemes(){
 		$result = $this->dbhandler->query("SELECT id,memename FROM memes");

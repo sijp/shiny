@@ -6,10 +6,10 @@ $handler=new MemesHandler();
 
 $dict=$handler->getMemes();
 $jsonable=array();
-foreach ($record as $dict){
-	array_append(	$jsonable,
+foreach ($dict as $record){
+	array_push(	$jsonable,
 			array(	"id"=>$record["id"],
-				"description"=>$record["nmemeame"]));
+				"description"=>$record["memename"]));
 }
-
+header("Content-Type: Application/json");
 echo json_encode($jsonable);
