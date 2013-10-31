@@ -1,4 +1,9 @@
 <?php
+
+/*
+ * recieves a file filename, the meme's name memename via POST.
+ * it then saves the file in the templates directory and adds it to the databse.
+ */
 require_once dirname(__FILE__)."/MemesHandler.php";
 
 if ($_FILES["filename"]["error"]>0) die("Fatal Error in file upload!");

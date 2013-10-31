@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * returns a JSON formatted structure that represents
+ * all the installed memes in the system.
+ * new memes can be installed via uploadMeme.php
+ */
 require_once dirname(__FILE__)."/MemesHandler.php";
 
 $handler=new MemesHandler();
